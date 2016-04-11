@@ -1,0 +1,47 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title of the document</title>
+
+<script>
+window.onload = function() {
+var fileInput = document.getElementById('fileInput');
+var fileDisplayArea = document.getElementById('fileDisplayArea');
+
+fileInput.addEventListener('change', 
+		            function(e) {
+				var file = fileInput.files[0];
+				var reader = new FileReader();
+				
+				reader.readAsText(file);
+
+				reader.onload = function(e){
+					fileDisplayArea.innerText = reader.result;
+				}//end reader.onload
+
+								
+				}//end function
+
+					
+				
+			   );//end EventListener
+}//end window.onload
+
+</script>
+</head>
+
+<body>
+<div id="page-wrapper">
+
+<h1>File Reader</h1>
+<div>
+Выберите документ: 
+<input type="file" id="fileInput">
+</div>
+<p id="fileDisplayArea"> </p>
+</div>
+</body>
+
+</html> 
+
